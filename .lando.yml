@@ -1,0 +1,4 @@
+name: volume
+recipe: wordpress
+config:
+  webroot: wordpress

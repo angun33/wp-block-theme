@@ -1,0 +1,57 @@
+{
+  "name": "encore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production run-s build:wp build:css build:js",
+    "build:wp": "wp-scripts build --context ./encore/src/blocks --output-path encore/blocks index.js",
+    "build:css": "postcss encore/src/styles/index.scss -o encore/style.css",
+    "build:js": "rollup -c",
+    "format:js": "wp-scripts format-js",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "start": "run-p start:wp start:css start:js",
+    "start:wp": "wp-scripts start --context ./encore/src/blocks --output-path encore/blocks index.js",
+    "start:css": "postcss encore/src/styles/index.scss -o encore/style.css --watch",
+    "start:js": "rollup -c -w",
+    "packages-update": "wp-scripts packages-update",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Encore Productions",
+  "license": "UNLICENSED",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not op_mini all",
+    "not IE 11",
+    "not IE_Mob 11"
+  ],
+  "devDependencies": {
+    "@babel/preset-env": "^7.13.12",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@wordpress/scripts": "^12.1.1",
+    "cross-env": "^7.0.3",
+    "cssnano": "^4.1.10",
+    "glob": "^7.1.6",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^7.0.32",
+    "postcss-cli": "^7.1.1",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "precss": "^4.0.0",
+    "rollup": "^2.44.0",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "dependencies": {
+    "@wordpress/block-editor": "^4.3.7",
+    "@wordpress/blocks": "^6.20.3",
+    "@wordpress/components": "^10.0.6",
+    "@wordpress/data": "^4.22.3",
+    "core-js": "^3.9.1",
+    "slugify": "^1.4.5"
+  }
+}

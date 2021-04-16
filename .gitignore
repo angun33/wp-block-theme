@@ -1,0 +1,7 @@
+.idea
+node_modules
+/wordpress
+/encore/build
+/encore/blocks
+/encore/style.css
+/encore/index.js
